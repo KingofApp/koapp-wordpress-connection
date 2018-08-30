@@ -1,0 +1,18 @@
+{
+  "name": "koapp-wordpress-connection",
+  "authors": [
+    "Jeferson De Freitas <jdefreitaspinto@gmail.com>"
+  ],
+  "description": "",
+  "main": "service.js",
+  "license": "MIT",
+  "homepage": "github.com/KingofApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/bower_components",
+    "test",
+    "tests"
+  ]
+}
