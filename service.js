@@ -23,12 +23,26 @@
         data    : data,
         headers : headers
       }).then(function(response) {
-        return response.data;
+        if (typeof response.data === 'object')
+          return response.data;
+        else
+          throw 'Bad request';
       }).catch(function(e) {
-        console.log(e);
-        if (!e.data && e.status === -1) {
+        if (typeof e !== 'string')
+          console.log(e);
+        if (!e.data && e.status === -1 && localStorage.length) {
           localStorage.clear();
-          return ajax(method, url, data)
+          return ajax(method, url, data);
+        }
+        else if (!e.data && e.status === -1 && !localStorage.length) {
+          return e;
+        }
+        else if (e === 'Bad request' && localStorage.length) {
+          localStorage.clear();
+          return ajax(method, url, data);
+        }
+        else if (e === 'Bad request' && !localStorage.length) {
+          return e;
         }
         else {
           localStorage.clear();
