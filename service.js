@@ -52,7 +52,7 @@
     }
 
     return function(url, preffix) {
-      base = 'https://' + _.replace(url, /(^https?:\/\/|\/$)/g, '') + '/' + _.replace(preffix, /^\/|\/$/g, '');
+      base = 'http://' + _.replace(url, /(^https?:\/\/|\/$)/g, '') + '/' + _.replace(preffix, /^\/|\/$/g, '');
 
       if (cache[base])
         return cache[base];
