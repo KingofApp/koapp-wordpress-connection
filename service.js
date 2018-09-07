@@ -6,6 +6,7 @@
   wordpress.$inject = ['$http', '$location', '$window'];
 
   function wordpress($http, $location, $window) {
+    console.log("I'm wordpressService in version 0.0.3");
     var routes = {
       all       : ['categories', 'comments', 'media', 'pages', 'posts', 'tags', 'users'],
       views     : ['taxonomies', 'types'],
