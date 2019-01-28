@@ -135,7 +135,15 @@
 
       //api.login = body ajax('POST', `${base}/koapp/login`, body);
       //api.login = function(body) { return ajax('POST', base + '/jwt-auth/v1/token', body); };
-      api.login = function(body) { location.href = base + '/oauth2/authorize' + '?' + search(body); };
+      api.login = function(body, type) { 
+        if(type === "local"){
+          console.log("local:", base + '/oauth2/authorize' + '?' + search(body));
+          alert(base + '/oauth2/authorize' + '?' + search(body))
+          location.href = base + '/oauth2/authorize' + '?' + search(body); 
+        }else{
+          return base + '/oauth2/authorize' + '?' + search(body); 
+        }
+      };
 
       api.link = function(url) { return ajax('GET', url); };
 
