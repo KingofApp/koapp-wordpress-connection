@@ -53,8 +53,8 @@
     }
 
     return function(url, preffix) {
-      base = 'http://' + _.replace(url, /(^https?:\/\/|\/$)/g, '') + '/' + _.replace(preffix, /^\/|\/$/g, '');
-
+      base = url + '/' + _.replace(preffix, /^\/|\/$/g, '');
+      
       if (cache[base])
         return cache[base];
 
